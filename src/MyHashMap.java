@@ -29,4 +29,9 @@ public class MyHashMap<K, V> {
         return bucket[idx].get(key);
     }
 
+    public boolean remove(K key) {
+        int idx = getIndex(key);
+        return bucket[idx].remove(key);
+    }
+
 }
