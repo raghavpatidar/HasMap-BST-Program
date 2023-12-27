@@ -18,5 +18,10 @@ public class BSTMain {
         tree.printLevelOrder();
 
         System.out.println("\nThe size of the binary tree is: " + tree.size());
+
+        System.out.println("Search  Result of 63 : " + tree.search(63));
+        System.out.println("Search  Result of 88 : " + tree.search(88));
+        System.out.println("Search  Result of 40 : " + tree.search(40));
+        System.out.println("Search  Result of 11 : " + tree.search(11));
     }
 }
