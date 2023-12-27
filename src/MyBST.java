@@ -1,5 +1,8 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class MyBST<T extends Comparable<T>> {
-    private INode<T> root;
+    public INode<T> root;
 
     MyBST() {
         root = null;
@@ -32,6 +35,44 @@ public class MyBST<T extends Comparable<T>> {
             inorderRec(root.left);
             System.out.print(root.data + " ");
             inorderRec(root.right);
+        }
+    }
+
+    int size() {
+        return sizeRec(root);
+    }
+
+    int sizeRec(INode<T> node) {
+        if (node == null) {
+            return 0;
+        } else {
+            return (sizeRec(node.left) + 1 + sizeRec(node.right));
+        }
+    }
+
+    void printLevelOrder() {
+        Queue<INode<T>> queue = new LinkedList<>();
+        queue.add(root);
+        queue.add(null);
+        while (!queue.isEmpty()) {
+            INode<T> tempNode = queue.poll();
+
+            if (tempNode == null) {
+                if (queue.isEmpty() == false)
+                    queue.add(null);
+                System.out.println();
+            } else {
+
+                System.out.print(tempNode.data + " ");
+
+                if (tempNode.left != null) {
+                    queue.add(tempNode.left);
+                }
+
+                if (tempNode.right != null) {
+                    queue.add(tempNode.right);
+                }
+            }
         }
     }
 }
