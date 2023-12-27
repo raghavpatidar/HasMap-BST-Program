@@ -17,11 +17,10 @@ public class MyBST<T extends Comparable<T>> {
             root = new INode<T>(data);
             return root;
         }
-        if (root.data.compareTo(data) < 0) {
+        if (root.data.compareTo(data) < 0)
             root.right = insertRecursion(root.right, data);
-        } else {
+        else
             root.left = insertRecursion(root.left, data);
-        }
 
         return root;
     }
@@ -43,11 +42,11 @@ public class MyBST<T extends Comparable<T>> {
     }
 
     int sizeRec(INode<T> node) {
-        if (node == null) {
+        if (node == null)
             return 0;
-        } else {
+        else
             return (sizeRec(node.left) + 1 + sizeRec(node.right));
-        }
+
     }
 
     void printLevelOrder() {
@@ -65,14 +64,30 @@ public class MyBST<T extends Comparable<T>> {
 
                 System.out.print(tempNode.data + " ");
 
-                if (tempNode.left != null) {
+                if (tempNode.left != null)
                     queue.add(tempNode.left);
-                }
 
-                if (tempNode.right != null) {
+                if (tempNode.right != null)
                     queue.add(tempNode.right);
-                }
+
             }
         }
+    }
+
+    public boolean search(T data) {
+        return searchRec(root, data);
+    }
+
+    public boolean searchRec(INode<T> root, T data) {
+        if (root == null)
+            return false;
+
+        if (root.data.compareTo(data) < 0)
+            return searchRec(root.right, data);
+        else if (root.data.compareTo(data) > 0)
+            return searchRec(root.left, data);
+        else
+            return true;
+
     }
 }
