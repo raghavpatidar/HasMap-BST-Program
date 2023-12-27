@@ -21,5 +21,13 @@ public class Main {
             System.out.println(word + " --> : " + myHashMap.get(word));
         }
 
+        System.out.println("getting paranoid before removal : " + myHashMap.get("paranoid"));
+        myHashMap.remove("paranoid");
+        System.out.println("getting paranoid after removal : " + myHashMap.get("paranoid"));
+
+        System.out.println("getting avoidable before removal : " + myHashMap.get("avoidable"));
+        myHashMap.remove("avoidable");
+        System.out.println("getting avoidable after removal: " + myHashMap.get("avoidable"));
+
     }
 }
