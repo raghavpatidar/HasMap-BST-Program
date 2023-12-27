@@ -4,9 +4,9 @@ public class Main {
 
         MyHashMap<String, Integer> myHashMap = new MyHashMap<String, Integer>();
 
-        String sentence = "To be or not to be";
+        String sentence = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
         System.out.println(sentence);
-        String[] words = sentence.toLowerCase().split("\\s+");
+        String[] words = sentence.split("\\s+");
 
         for (String word : words) {
 

@@ -13,7 +13,7 @@ public class MyHashMap<K, V> {
     }
 
     private int getIndex(K key) {
-        int hashCode = key.hashCode();
+        int hashCode = Math.abs(key.hashCode());
         hashCode = hashCode % this.bucketSize;
         return hashCode;
     }
